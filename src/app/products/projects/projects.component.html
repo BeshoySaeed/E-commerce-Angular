@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="top d-flex justify-content-between my-3 gap-2 align-items-center">
+    <input
+      type="search"
+      class="form-control rounded w-25"
+      placeholder="Search"
+      aria-label="Search"
+      aria-describedby="search-addon"
+      [(ngModel)]="inputValue"
+      (ngModelChange)="onChangeFunction($event)"
+    />
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li
+          class="page-item"
+          [class.active-list]="pagginationColor === 0"
+          (click)="pagginationPage(0)"
+        >
+          1
+        </li>
+        <li
+          class="page-item"
+          [class.active-list]="pagginationColor === 10"
+          (click)="pagginationPage(10)"
+        >
+          2
+        </li>
+        <li
+          class="page-item"
+          [class.active-list]="pagginationColor === 20"
+          (click)="pagginationPage(20)"
+        >
+          3
+        </li>
+        <li
+          class="page-item"
+          [class.active-list]="pagginationColor === 30"
+          (click)="pagginationPage(30)"
+        >
+          4
+        </li>
+      </ul>
+    </nav>
+    <select
+      class="form-select form-select-sm w-25"
+      aria-label=".form-select-sm example"
+      [(ngModel)]="select"
+      (ngModelChange)="onOptionChange($event)"
+    >
+      <option selected>All</option>
+      <option value="smartphones">smartphones</option>
+      <option value="laptops">laptops</option>
+      <option value="fragrances">fragrances</option>
+    </select>
+  </div>
+  <div class="row m-auto">
+    <ng-container *ngFor="let item of cardsData; let i = index; trackBy: track">
+      <div class="col-lg-4 col-md-6 col-12 mt-2" style="padding: 20px 0">
+        <app-projects-card [card]="item"></app-projects-card>
+      </div>
+    </ng-container>
+  </div>
+</div>

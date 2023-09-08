@@ -1,0 +1,35 @@
+<div class="card text-center">
+  <div class="card-header">{{ ourCard.title }}</div>
+  <div class="card-body">
+    <img [src]="ourCard.images[0]" alt="image" height="300" width="400" />
+    <h5 class="card-title">{{ ourCard.description }}</h5>
+    <p class="card-text">
+      {{ ourCard.description }}
+    </p>
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a
+        type="button"
+        class="btn btn-secondary"
+        [routerLink]="['/projects', ourCard.id - 1]"
+        [ngClass]="ourCard.id == 1 ? 'disable' : ''"
+        >Previous product</a
+      >
+      <a
+        type="button"
+        class="btn btn-secondary"
+        routerLink="/projects"
+        (click)="addCart(ourCard)"
+        >Add to cart</a
+      >
+      <a
+        type="button"
+        class="btn btn-secondary"
+        [routerLink]="['/projects', ourCard.id + 1]"
+        [ngClass]="ourCard.id == 30 ? 'disable' : ''"
+        >Next product</a
+      >
+    </div>
+  </div>
+  <div class="card-footer text-muted">2 days ago</div>
+</div>

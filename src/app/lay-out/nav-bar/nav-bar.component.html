@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-between"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav align-items-center">
+        <a
+          class="nav-link fs-4"
+          aria-current="page"
+          routerLink="projects"
+          routerLinkActive="active"
+          >Projects</a
+        >
+        <a class="nav-link">
+          <fa-icon
+            [icon]="shopIcon"
+            routerLinkActive="active"
+            (click)="checkLoginFirst()"
+            style="font-size: 20px; cursor: pointer"
+          ></fa-icon>
+        </a>
+      </div>
+      <div class="btns">
+        <button class="btn btn-danger border-0 px-3 py-2 rounded-pill me-2">
+          <a
+            routerLink="login"
+            class="text-decoration-none text-white"
+            *ngIf="!isAuth()"
+            >Log In</a
+          >
+          <a
+            routerLink="login"
+            class="text-decoration-none text-white"
+            *ngIf="isAuth()"
+            >Log out</a
+          >
+        </button>
+        <button
+          class="btn btn-danger border-0 px-3 py-2 rounded-pill me-2"
+          *ngIf="!isAuth()"
+        >
+          <a
+            routerLink="register"
+            class="text-decoration-none text-white w-100 h-100"
+            >Register</a
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,29 @@
+<div class="card" style="width: 18rem; height: 500px" *ngIf="card">
+  <img
+    [src]="card.images[0]"
+    class="card-img-top"
+    alt="Card image cap"
+    style="height: 200px"
+  />
+  <div class="card-body mt-3">
+    <h5 class="card-title">{{ card.title }}</h5>
+    <p
+      [ngClass]="{
+        'text-success': card.price < 500,
+        'text-danger': card.price > 500
+      }"
+    >
+      price : {{ card.price | price }}
+    </p>
+
+    <p class="card-text">{{ card.description }}</p>
+    <p>{{ card.brand }}</p>
+    <p>{{ card.category }}</p>
+    <a
+      class="btn btn-success rounded-pill"
+      style="position: absolute; bottom: 280px"
+      [routerLink]="['/projects', card.id]"
+      >Details</a
+    >
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <p class="h2 text-danger">Cart</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">quantity</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container
+        *ngFor="let card of cartCards; let i = index; trackBy: track"
+      >
+        <tr class="">
+          <th scope="row">1</th>
+          <td><img [src]="card.images[0]" alt="" style="width: 100px" /></td>
+          <td>{{ card.title }}</td>
+          <td>{{ card.price }}</td>
+          <td>
+            <a class="btn btn-danger me-1" (click)="decreaseQuantity(i)">-</a>
+            {{ quantity[i] + 1 }}
+            <a class="btn btn-success ms-1" (click)="increaseQuantity(i)">+</a>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="removeIt(card, i)">
+              remove
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+  <p>Total-Price : {{ totalPrice }}</p>
+</div>
